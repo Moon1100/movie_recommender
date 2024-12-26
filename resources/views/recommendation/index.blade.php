@@ -3,7 +3,7 @@
     <div class="max-w-3xl mx-auto mt-10 animate-fade-in">
         <!-- Container with fade-in animation -->
         <div class="bg-gray-800 shadow-md rounded-lg animate-fade-in">
-            <div class="bg-gradient-to-r from-red-600 to-red-800 text-white rounded-t-lg px-6 py-4">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-lg px-6 py-4">
                 <h3 class="text-xl font-semibold">Select a Movie to Get Recommendations</h3>
             </div>
 
@@ -15,11 +15,11 @@
                         <input 
                             type="text" 
                             name="movieList" 
-                            class="w-full bg-gray-900 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                            class="w-full bg-gray-900 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Type a movie title..."
                         >
                     </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         Search
                     </button>
                 </form>
@@ -38,7 +38,7 @@
                                 <form action="{{ route('recommend.search') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-                                    <button type="submit" class="bg-gradient-to-r from-red-600 to-red-700 text-white py-1 px-3 rounded-lg hover:bg-gradient-to-r hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-red-500">
+                                    <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-1 px-3 rounded-lg hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         Get Recommendations
                                     </button>
                                 </form>

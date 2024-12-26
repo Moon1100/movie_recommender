@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-4xl mx-auto mt-8 bg-gray-900 shadow-lg rounded-lg animate-fade-in">
         <!-- Header Section with Red and Black Gradient -->
-        <div class="bg-gradient-to-r from-red-600 to-black text-white rounded-t-lg px-6 py-4">
+        <div class="bg-gradient-to-r from-blue-600 to-black text-white rounded-t-lg px-6 py-4">
             <h3 class="text-2xl font-bold">My Wishlist</h3>
         </div>
 
@@ -19,7 +19,7 @@
                                      class="w-full h-56 object-cover rounded-md">
                             </div>
 
-                            <h4 class="text-lg font-semibold text-red-600">{{ $rMovie['title'] }}</h4>
+                            <h4 class="text-lg font-semibold text-blue-600">{{ $rMovie['title'] }}</h4>
                             <p class="text-gray-400 mt-2"><span class="font-medium text-white">Movie ID:</span> {{ $rMovie['movie_id'] }}</p>
                             <p class="text-gray-400 mt-2"><span class="font-medium text-white">Similarity:</span> {{ $rMovie['similarity'] }}</p>
                             <p class="text-gray-400 mt-2"><span class="font-medium text-white">Overview:</span> {{ $rMovie['overview'] }}</p>
@@ -27,7 +27,7 @@
                                    <form action="{{ route('recommend.remove-wishlist') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="movie_id" value="{{ $rMovie['movie_id'] }}">
-                                        <button type="submit" class="w-full bg-gray-600 text-white py-2 rounded-lg text-sm hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300">
+                                        <button type="submit" class="w-full bg-gray-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
                                             Remove Wishlist
                                         </button>
                                     </form>
@@ -42,7 +42,7 @@
             <!-- Back Button -->
             <div class="mt-8 text-center">
                 <a href="{{ route('recommend.index') }}" 
-                   class="bg-red-600 text-white py-2 px-6 rounded-lg hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300">
+                   class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
                     Back to Movies
                 </a>
             </div>

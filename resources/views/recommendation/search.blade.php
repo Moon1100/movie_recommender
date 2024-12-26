@@ -2,7 +2,7 @@
 
     <div class="max-w-5xl mx-auto mt-8 bg-gray-900 shadow-lg rounded-lg animate-fade-in">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-red-600 to-red-800 text-white text-center rounded-t-lg py-4">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center rounded-t-lg py-4">
             <h3 class="text-2xl font-bold">Select a Movie to Get Recommendations</h3>
         </div>
 
@@ -17,11 +17,11 @@
                         type="text" 
                         name="movieList" 
                         id="movie_id" 
-                        class="w-full border border-gray-300 bg-gray-900 rounded-lg p-3 focus:outline-none focus:ring focus:ring-red-300" 
+                        class="w-full border border-gray-300 bg-gray-900 rounded-lg p-3 focus:outline-none focus:ring focus:ring-blue-300" 
                         placeholder="Type a movie title..."
                     >
                 </div>
-                <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300">
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
                     Search
                 </button>
             </form>
@@ -39,7 +39,7 @@
                                 <form action="{{ route('recommend.results') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-                                    <button type="submit" class="w-full bg-red-800 text-white py-2 rounded-lg text-sm hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300">
+                                    <button type="submit" class="w-full bg-blue-800 text-white py-2 rounded-lg text-sm hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
                                         Get Recommendations
                                     </button>
                                 </form>
@@ -47,7 +47,7 @@
                                 <form action="{{ route('recommend.wishlist') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-                                    <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg text-sm hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300">
+                                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
                                         Wishlist
                                     </button>
                                 </form>

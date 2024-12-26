@@ -2,8 +2,8 @@
   <!-- Background gradient circle -->
   <defs>
     <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF0000;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0000FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00008B;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="blackGradient" x1="0%" y1="0%" x2="100%" y2="100%">
   <stop offset="0%" style="stop-color:#555555;stop-opacity:1" />
