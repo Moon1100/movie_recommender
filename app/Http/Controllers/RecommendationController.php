@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\Recommendation\RecommendService;
 use App\Models\Wishlist;
+use App\Models\Similarities;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -51,13 +52,17 @@ class RecommendationController extends Controller
         $apiKey = env('TMDB_TOKEN');
         $baseUrl = env('TMDB_IMAGE_BASE_URL');
 
-     
+        
 
         $movieId = (int) $request->input('movie_id');
-        $similarMovies = $this->recommender->getSimilarMovies($movieId, 5);
+        $similarMovies = (Similarities::where('movie_id',$movieId)->exists())
+            ? Similarities::where('movie_id',$movieId)
+            ->select('other_movie_id as movie_id', 'rating as similarity')
+            ->limit(5)->get()
+            : $this->recommender->getSimilarMovies($movieId, 5);
         $currentMovie = DB::table('movies')->find($movieId);
         $recommendedMovieData = [];
-
+        // dd($similarMovies);
         $client = new \GuzzleHttp\Client();
         try {
             $response = $client->request('GET', "https://api.themoviedb.org/3/movie/" . $currentMovie->id, [

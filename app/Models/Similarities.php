@@ -9,4 +9,8 @@ class Similarities extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'movie_id', 'other_movie_id', 'rating'
+    ];
+
 }

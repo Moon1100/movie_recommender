@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('movie_id');
             $table->foreignId('other_movie_id');
-            $table->float('count',2,1);
-            $table->unsignedBigInteger('rating');
+            $table->float('rating', 2, 1);
             $table->timestamps();
         });
     }

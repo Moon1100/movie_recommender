@@ -2,14 +2,18 @@
 namespace App\Services\Recommendation;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Similarity;
+use App\Models\Similarities;
 
 class RecommendService
 {
 
     public function getSimilarMovies(int $movieId, int $limit = 5): array
     {
-        dd(Similarity::get());
+
+        if(Similarities::where('movie_id',$movieId)->exists())
+        {
+            exit;
+        }
 
         // Placeholder logic for computing movie similarities
         $userRatingsForTarget = DB::table('ratings')
@@ -69,6 +73,25 @@ class RecommendService
             return $b['similarity'] <=> $a['similarity'];
         });
 
+        $this->addToSimilarities($movieId, $results);
         return array_slice($results, 0, $limit);
+    }
+
+    public function addToSimilarities($movieId, $results)
+    {
+        foreach($results as $item)
+        {
+            Similarities::updateOrCreate(
+                [
+                    'movie_id' => $movieId,
+                    'other_movie_id' => $item['movie_id']
+                ],
+                [
+                    'movie_id' => $movieId,
+                    'other_movie_id' => $item['movie_id'],
+                    'rating' => $item['similarity']
+                ]
+            );
+        }
     }
 }
