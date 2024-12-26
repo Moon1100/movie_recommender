@@ -62,7 +62,7 @@ class RecommendationController extends Controller
             : $this->recommender->getSimilarMovies($movieId, 5);
         $currentMovie = DB::table('movies')->find($movieId);
         $recommendedMovieData = [];
-        // dd($similarMovies);
+        
         $client = new \GuzzleHttp\Client();
         try {
             $response = $client->request('GET', "https://api.themoviedb.org/3/movie/" . $currentMovie->id, [
